@@ -1,4 +1,5 @@
-// Импорт аннотаций
+import javax.persistence.*;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,9 +23,9 @@ public class Employee {
     private String gender;
     @Column(name = "age")
     private int age;
-    @Column(name = "city_id")
-    private Integer city;
 
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private City city ;
 
     public Employee() {
         this.id = id;
@@ -35,14 +36,16 @@ public class Employee {
         this.city = city;
     }
 
-    public Employee(String first_name, String last_name, String gender, int age, Integer city) {
+    public Employee(String first_name, String last_name, String gender, int age, City city) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.gender = gender;
         this.age = age;
         this.city = city;
-    }   public Employee(Integer id,String first_name, String last_name, String gender, int age, Integer city) {
+    }
+
+    public Employee(Integer id, String first_name, String last_name, String gender, int age, City city) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -92,11 +95,11 @@ public class Employee {
     }
 
 
-    public Integer getCity() {
+    public City getCity() {
         return city;
     }
 
-    public void setCity(Integer city) {
+    public void setCity(City city) {
         this.city = city;
     }
 
@@ -113,3 +116,19 @@ public class Employee {
                 "}\n";
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
