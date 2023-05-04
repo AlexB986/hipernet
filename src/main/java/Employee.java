@@ -42,7 +42,9 @@ public class Employee {
         this.gender = gender;
         this.age = age;
         this.city = city;
-    }   public Employee(Integer id,String first_name, String last_name, String gender, int age, Integer city) {
+    }
+
+    public Employee(Integer id, String first_name, String last_name, String gender, int age, Integer city) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
