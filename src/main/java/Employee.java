@@ -1,4 +1,5 @@
-// Импорт аннотаций
+import javax.persistence.*;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,6 +26,8 @@ public class Employee {
     @Column(name = "city_id")
     private Integer city;
 
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private City citys ;
 
     public Employee() {
         this.id = id;
@@ -115,3 +118,19 @@ public class Employee {
                 "}\n";
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
